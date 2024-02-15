@@ -1,0 +1,22 @@
+/*INSERT INTO Article_sc (id) VALUES (105)*/
+
+CREATE OR REPLACE FUNCTION simulCléPrimaire() RETURNS TRIGGERS AS $$ {
+
+	BEGIN
+
+		IF (TG_OP = 'INSERT') THEN
+
+			SELECT id FROM Article_sc WHERE id = NEW.id;
+
+			IF (FOUND) THEN
+
+				RAISE NOTICE 'IMPOSSIBLE CLÉ PRIMAIRE EXISTE DEJA';
+			
+			END IF;
+		ELSE IF (TG_OP = 'UPDATE') THEN
+
+		END IF;
+
+
+	END;
+} $$ LANGUAGE plpgsql;

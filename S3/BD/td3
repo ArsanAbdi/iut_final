@@ -1,0 +1,294 @@
+INSERT INTO Facture (id, quantite) VALUES (101, 4);
+NOTICE:  101 valeur NEW : 3.79 * 4 = 15.16 INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+(1 ligne)
+
+
+INSERT INTO Facture (id, quantite) VALUES (102, 1);
+NOTICE:  102 valeur NEW : 7.99 * 1 = 7.99 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+(2 lignes)
+
+
+
+INSERT INTO Facture (id, quantite) VALUES (103, 3)
+aabdi-> ;
+NOTICE:  103 valeur NEW : 5.49 * 3 = 16.47 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+(3 lignes)
+
+
+aabdi=> INSERT INTO Facture (id, quantite) VALUES (104, 8);
+*NOTICE:  104 valeur NEW : 2.89 * 8 = 23.12 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+ 104 |        8 |      23.12
+(4 lignes)
+
+
+
+INSERT INTO Facture (id, quantite, prix_total) VALUES (105, 10, 0);
+NOTICE:  105 valeur NEW : 1.69 * 10 = 16.90 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+ 104 |        8 |      23.12
+ 105 |       10 |      16.90
+(5 lignes)
+
+
+
+INSERT INTO Facture (id, quantite, prix_total) VALUES (106, 12, 7.54);
+NOTICE:  106 valeur NEW : 0.59 * 12 = 7.08 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+ 104 |        8 |      23.12
+ 105 |       10 |      16.90
+ 106 |       12 |       7.08
+(6 lignes)
+
+
+
+INSERT INTO Facture (id, quantite, prix_total) VALUES (107, 6, 2.228);
+NOTICE:  107 valeur NEW : 1.19 * 6 = 7.14 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+ 104 |        8 |      23.12
+ 105 |       10 |      16.90
+ 106 |       12 |       7.08
+ 107 |        6 |       7.14
+(7 lignes)
+
+
+INSERT INTO Facture (id, quantite, prix_total) VALUES (108, 1, 0);
+NOTICE:  108 valeur NEW : 0.45 * 1 = 0.45 
+INSERT 0 1
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+ 104 |        8 |      23.12
+ 105 |       10 |      16.90
+ 106 |       12 |       7.08
+ 107 |        6 |       7.14
+ 108 |        1 |       0.45
+(8 lignes)
+
+
+UPDATE Facture SET quantite = 9 WHERE id = 109;
+UPDATE 0
+
+
+INSERT INTO Facture (id, quantite, prix_total) VALUES (110, 1, 0);
+INSERT 0 0
+aabdi=> SELECT * FROM Facture;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 101 |        4 |      15.16
+ 102 |        1 |       7.99
+ 103 |        3 |      16.47
+ 104 |        8 |      23.12
+ 105 |       10 |      16.90
+ 106 |       12 |       7.08
+ 107 |        6 |       7.14
+ 108 |        1 |       0.45
+(8 lignes)
+
+
+
+SELECT * FROM Facture ORDER BY prix_total;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 108 |        1 |       0.45
+ 106 |       12 |       7.08
+ 107 |        6 |       7.14
+ 102 |        1 |       7.99
+ 101 |        4 |      15.16
+ 103 |        3 |      16.47
+ 105 |       10 |      16.90
+ 104 |        8 |      23.12
+(8 lignes)
+
+aabdi=> UPDATE Facture SET quantite = 0 WHERE prix_total > 12.5;
+NOTICE:  101 valeur OLD : 3.79 * 4 = 15.16 
+NOTICE:  101 valeur NEW : 3.79 * 0 = 0.00 
+NOTICE:  103 valeur OLD : 5.49 * 3 = 16.47 
+NOTICE:  103 valeur NEW : 5.49 * 0 = 0.00 
+NOTICE:  104 valeur OLD : 2.89 * 8 = 23.12 
+NOTICE:  104 valeur NEW : 2.89 * 0 = 0.00 
+NOTICE:  105 valeur OLD : 1.69 * 10 = 16.90 
+NOTICE:  105 valeur NEW : 1.69 * 0 = 0.00 
+UPDATE 4
+aabdi=> SELECT * FROM Facture ORDER BY prix_total;
+ id  | quantite | prix_total 
+-----+----------+------------
+ 105 |        0 |       0.00
+ 101 |        0 |       0.00
+ 103 |        0 |       0.00
+ 104 |        0 |       0.00
+ 108 |        1 |       0.45
+ 106 |       12 |       7.08
+ 107 |        6 |       7.14
+ 102 |        1 |       7.99
+(8 lignes)
+
+
+UPDATE Facture SET prix_total = 0 WHERE id = 106;
+NOTICE:  106 valeur OLD : 0.59 * 12 = 7.08 
+NOTICE:  106 valeur NEW : 0.59 * 12 = 7.08 
+UPDATE 1
+
+
+
+SELECT * FROM Article ORDER BY prix;
+ id  |        nom         | prix 
+-----+--------------------+------
+ 108 | Tube de colle      | 0.45
+ 106 | Crayon à papier    | 0.59
+ 107 | Marqueur permanent | 1.19
+ 105 | Surligneur         | 1.69
+ 104 | Chemise à rabats   | 2.89
+ 101 | Classeur           | 3.79
+ 109 | Trousse            | 4.99
+ 103 | Ramette de papier  | 5.49
+ 102 | Agenda             | 7.99
+(9 lignes)
+
+aabdi=> UPDATE Article SET prix = ROUND(prix) WHERE id = 102;
+UPDATE 1
+aabdi=> SELECT * FROM Article ORDER BY prix;
+ id  |        nom         | prix 
+-----+--------------------+------
+ 108 | Tube de colle      | 0.45
+ 106 | Crayon à papier    | 0.59
+ 107 | Marqueur permanent | 1.19
+ 105 | Surligneur         | 1.69
+ 104 | Chemise à rabats   | 2.89
+ 101 | Classeur           | 3.79
+ 109 | Trousse            | 4.99
+ 103 | Ramette de papier  | 5.49
+ 102 | Agenda             |    8
+(9 lignes)
+
+(h) on a modifié le prix de l'article 102 dans la table Article et il se trouve qu'il ne s'actualise pas dans facture.
+
+(i) La clé (id)=(101) est toujours référencée à partir de la table « facture ».
+
+aabdi=> ALTER TABLE Facture ALTER COLUMN prix_total SET NOT NULL;
+
+
+
+ALTER TABLE Facture DISABLE TRIGGER trig_four;
+ALTER TABLE
+aabdi=> \d Facture
+                  Table « declencheur.facture »
+  Colonne   |  Type   | Collationnement | NULL-able | Par défaut 
+------------+---------+-----------------+-----------+------------
+ id         | integer |                 |           | 
+ quantite   | integer |                 |           | 
+ prix_total | numeric |                 | not null  | 
+Contraintes de clés étrangères :
+    "facture_id_fkey" FOREIGN KEY (id) REFERENCES article(id)
+Triggers utilisateurs désactivés :
+    trig_four BEFORE INSERT OR DELETE OR UPDATE ON facture FOR EACH ROW EXECUTE FUNCTION fourniture()
+
+
+INSERT INTO Facture (id, quantite) VALUES (109, 20);
+ERREUR:  une valeur NULL viole la contrainte NOT NULL de la colonne « prix_total »
+DÉTAIL : La ligne en échec contient (109, 20, null).
+
+
+INSERT INTO Facture (id, quantite) VALUES (109, 20);
+ERREUR:  une valeur NULL viole la contrainte NOT NULL de la colonne « prix_total »
+DÉTAIL : La ligne en échec contient (109, 20, null).
+
+
+EXO 2//
+
+CREATE TABLE Article_sc AS SELECT * FROM Article;
+
+CREATE TABLE Facture_sc AS SELECT * FROM Facture;
+
+aabdi=> SELECT * FROM article_sc;
+ id  |        nom         | prix 
+-----+--------------------+------
+ 101 | Classeur           | 3.79
+ 102 | Agenda             | 7.99
+ 103 | Ramette de papier  | 5.49
+ 104 | Chemise à rabats   | 2.89
+ 105 | Surligneur         | 1.69
+ 106 | Crayon à papier    | 0.59
+ 107 | Marqueur permanent | 1.19
+ 108 | Tube de colle      | 0.45
+ 109 | Trousse            | 4.99
+
+
+ \d Article;
+                     Table « declencheur.article »
+ Colonne |       Type        | Collationnement | NULL-able | Par défaut 
+---------+-------------------+-----------------+-----------+------------
+ id      | integer           |                 | not null  | 
+ nom     | character varying |                 |           | 
+ prix    | numeric           |                 |           | 
+Index :
+    "article_pkey" PRIMARY KEY, btree (id)
+Référencé par :
+    TABLE "facture" CONSTRAINT "facture_id_fkey" FOREIGN KEY (id) REFERENCES article(id)
+
+aabdi=> \d Article_sc;
+                    Table « declencheur.article_sc »
+ Colonne |       Type        | Collationnement | NULL-able | Par défaut 
+---------+-------------------+-----------------+-----------+------------
+ id      | integer           |                 |           | 
+ nom     | character varying |                 |           | 
+ prix    | numeric           |                 |           | 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+F 9201	arsan
+F 9203	arsan
+F 9204	arsan
+F 9205	arsan
+F 9202	arsan
+le processus fils de PIDSyst = 1, vient de terminer
+le processus fils de PIDSyst = 1, vient de terminer
+le processus fils de PIDSyst = 1, vient de terminer
+le processus fils de PIDSyst = 1, vient de terminer
+le processus fils de PIDSyst = 1, vient de terminer
