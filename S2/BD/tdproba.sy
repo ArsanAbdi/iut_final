@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Sep 26 13:42:48 2023
+
+@author: aabdi
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""size = 500000
+data = (np.random.rand(size) * 3)
+
+plt.title('Histogram of simulated data')
+plt.grid(True)
+plt.hist(data, bins = 10, density = True, color = 'g', edgecolor = 'red', alpha = 0.7)
+"""
+
+
+
+
+"""nsim = 500
+p = 0.4
+valeurX = [0, 1]
+compte = np.array([0, 0])
+
+for k in range(nsim) :
+    U = np.random.rand()
+    if(U <= p) : 
+        
+        compte[1] = compte[1] + 1
+    else : 
+        
+        compte[0] = compte[0] + 1
+        
+
+
+freqX = compte / nsim
+print('frequence = ', freqX)
+plt.bar(valeurX, freqX, width = 0.02, color = 'red')"""
+ 
+
+
+"""size = 500
+valeurs = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+valeurs2 = np.array([-1, 0, 1, 2])
+data = np.random.choice(valeurs2, size)
+
+plt.title('Histogram of simulated data')
+plt.grid(True)
+plt.hist(data, bins = 10, density = True, color = 'g', edgecolor = 'red', alpha = 0.7)"""
+
+
+
+
+
+
+"""valeurX = [1, 3, 4, 5]
+probaX = np.array([0.4, 0.3, 0.2, 0.1])
+cumprobaX = np.cumsum(probaX)
+print(cumprobaX)
+
+nsim = 10
+compteX = np.zeros(len(valeurX))
+
+
+for k in range(nsim) :
+    
+    U = np.random.rand()
+    indice = np.min(np.where(cumprobaX > U))
+    simulX = valeurX[indice]
+    compteX[indice] = compteX[indice] + 1
+    
+freqX = compteX / nsim
+plt.bar(valeurX, freqX, width = 0.02, color = 'red')   """
+
+
+
+
+
+
