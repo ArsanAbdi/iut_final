@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb  9 10:48:15 2023
+
+@author: aabdi
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+donnéesX = np.array([1, 2, 1, 0, 0, 1, 1, 2, 5, 5])
+
+def calculs(tab):
+    moy = np.sum(tab) / len(tab) 
+    print(moy)
+    
+    var = (np.sum(tab**2) / len(tab)) - (moy**2)
+    print(var)
+    
+    ecart = var**(1/2)
+    print(ecart)
+    
+donnéesY = np.array(donnéesX*(1/2)+10)
+
+def moyenne(data):   
+    n = len(data)
+    moyenne =   np.sum(data) / n
+    return moyenne
+
+def variance(data):  
+    variance = (np.sum(data**2) / len(data)) - (moyenne(data)**2)
+    return variance
+
+def covariance(dataX,dataY):  
+    covariance = (moyenne(donnéesX*donnéesY)) - (moyenne(donnéesX)*moyenne(donnéesY))
+    return covariance 
+
+donnéesYPourMoy0 = np.array(donnéesY-10.9)
+donnéesYPourVar1 = np.array(donnéesY*1.165)
