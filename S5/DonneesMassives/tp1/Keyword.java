@@ -1,108 +1,123 @@
 package searchEngine;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.TreeMap;
 
 
-public class Keyword  implements Serializable {
-
+public class Keyword  implements Serializable, Comparable<Keyword> {
 
     private static final long serialVersionUID = 1L;
     private String term;
-    private TreeMap<Integer,Integer> occurrences;
-    private TreeMap<Integer,Double> frequences;
-    private TreeMap<Integer,Double> TFIDFfrequences;
-    private TreeMap<Integer,Double> frequencesProb;
+    private final TreeMap<Integer,Integer> occurrences;
+    private final TreeMap<Integer,Double> frequences;
+    private final TreeMap<Integer,Double> TFIDFfrequences;
+    private final TreeMap<Integer,Double> frequencesProb;
 
 
-    public Keyword(String mot){
-        occurrences = new  TreeMap<Integer,Integer>();
-        frequences = new  TreeMap<Integer,Double>();
-        TFIDFfrequences = new  TreeMap<Integer,Double>();
-        frequencesProb = new  TreeMap<Integer,Double>();
-        this.term=mot;
+    public Keyword(String mot) {
+
+        this.occurrences = new TreeMap<Integer,Integer>();
+        this.frequences = new TreeMap<Integer,Double>();
+        this.TFIDFfrequences = new TreeMap<Integer,Double>();
+        this.frequencesProb = new TreeMap<Integer,Double>();
+        this.term = mot;
     }
-
-
-
 
     /**Getter and Setter for term*/
     public String getTerm() {
-        return term;
+
+        return this.term;
     }
 
     public void setTerm(String term) {
+
         this.term = term;
     }
 
-
-
     public Integer get1Occur(Integer  idDoc) {
-        return occurrences.get(idDoc);
+
+        return this.occurrences.get(idDoc);
     }
 
     public boolean existsOccur(Integer  idDoc) {
-        return occurrences.containsKey(idDoc);
+
+        return this.occurrences.containsKey(idDoc);
     }
 
     public void add1Occur(Integer idDoc, Integer occur){
-        occurrences.put(idDoc,occur);
-    }
 
+        this.occurrences.put(idDoc,occur);
+    }
 
     public Double get1Freq(Integer  idDoc) {
-        return frequences.get(idDoc);
+
+        return this.frequences.get(idDoc);
     }
 
-    public void add1Freq(Integer idDoc, Double freq){
-      frequences.put(idDoc,freq);
+    public void add1Freq(Integer idDoc, Double freq) {
 
+        this.frequences.put(idDoc,freq);
     }
+
     public boolean existsFreq(Integer  idDoc) {
-        return occurrences.containsKey(idDoc);
+
+        return this.occurrences.containsKey(idDoc);
     }
 
     public Double get1TFIDFFreq(Integer  idDoc) {
-        return TFIDFfrequences.get(idDoc);
+
+        return this.TFIDFfrequences.get(idDoc);
     }
 
     public void add1TFIDFFreq(Integer idDoc, Double freq){
-        TFIDFfrequences.put(idDoc,freq);
 
+        this.TFIDFfrequences.put(idDoc,freq);
     }
+
     public boolean existsTFIDFreq(Integer  idDoc) {
-        return TFIDFfrequences.containsKey(idDoc);
+
+        return this.TFIDFfrequences.containsKey(idDoc);
     }
-
-
 
     public Double get1FreqProb(Integer  idDoc) {
-        return frequencesProb.get(idDoc);
+
+        return this.frequencesProb.get(idDoc);
     }
 
     public void add1FreqProb(Integer idDoc, Double freq){
-        frequencesProb.put(idDoc,freq);
 
+        this.frequencesProb.put(idDoc,freq);
     }
+
     public boolean existsFreqProb(Integer  idDoc) {
-        return frequencesProb.containsKey(idDoc);
-    }
 
+        return this.frequencesProb.containsKey(idDoc);
+    }
 
     public TreeMap<Integer, Double> getFrequences() {
-        return frequences;
+
+        return this.frequences;
     }
+
     public TreeMap<Integer, Integer> getOccurrences() {
-        return occurrences;
+
+        return this.occurrences;
     }
+
     public TreeMap<Integer, Double> getTFIDFFrequences() {
-        return TFIDFfrequences;
+
+        return this.TFIDFfrequences;
     }
+
     public TreeMap<Integer, Double> getFrequencesProb() {
-        return frequencesProb;
+
+        return this.frequencesProb;
     }
 
+    @Override
+    public int compareTo(Keyword other) {
 
-
-
+        return this.term.compareTo(other.getTerm());
+    }
 }

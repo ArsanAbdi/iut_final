@@ -5,53 +5,36 @@ import java.util.TreeMap;
 
 
 public class Index {
-
-   static final String pathDocs= "documents.data";;
-   static final String pathVoc = "vocabulary.data";
-
+   static final String pathDocs= "searchEngine/documents.data";
+   static final String pathVoc = "searchEngine/vocabulary.data";
    static TreeMap<String,Keyword> keywords;
    static TreeMap<Integer,Document> documents;
 
+    public Index() {
 
-
-
-
-
-    public Index(){
-        keywords = new TreeMap<String,Keyword>();
+		keywords = new TreeMap<String,Keyword>();
         documents = new TreeMap<Integer,Document>();
     }
 
+    public Keyword getKeyword(String key) {
 
-
-
-    public Keyword getKeyword(String key){
-
-        return keywords.get(key);
+        return this.keywords.get(key);
     }
 
-    public void addKeyword(String key, Keyword keyword){
+    public void addKeyword(String key, Keyword keyword) {
 
-        keywords.put(key, keyword);
+		this.keywords.put(key, keyword);
     }
 
+    public Document getDocument(Integer id) {
 
-
-
-
-    public Document getDocument(Integer id){
-
-        return documents.get(id);
+        return this.documents.get(id);
     }
 
-    public void addDocument(Integer id, Document doc){
+    public void addDocument(Integer id, Document doc) {
 
-        documents.put(id, doc);
+		this.documents.put(id, doc);
     }
-
-
-
-
 
 	public static void saveVocabulary() {
 		try {
@@ -72,7 +55,6 @@ public class Index {
 			System.exit(1);
 		}
 	}
-
 	public static TreeMap<String, Keyword> loadVocabulary() {
 		try {
 			System.out.println("Loading keywords...");
@@ -115,7 +97,6 @@ public class Index {
 			System.exit(1);
 		}
 	}
-
 	public static TreeMap<Integer, Document> loadDocuments() {
 		try {
 			// Read from disk using FileInputStream
@@ -139,7 +120,4 @@ public class Index {
 		}
 		return null;
 	}
-
-
-
 }
