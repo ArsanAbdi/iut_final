@@ -1,0 +1,38 @@
+requête pour tout afficher -> MATCH (n)-[r]->(m) RETURN n,r,m;
+
+Question 2:
+
+    Noeud -> Movie + attributs -> title, released, tagline
+    Noeud -> Person + attributs -> name, born
+
+    Relation -> ACTED_IN + attribut -> roles
+    Relation -> DIRECTED
+    Relation -> PRODUCED
+    Relation -> WROTE
+    Relation -> FOLLOWS
+    Relation -> REVIEWED + attributs -> summary, rat
+    
+Question 3.1 -> MATCH (m: Movie) RETURN m.title
+
+Question 3.2 -> MATCH (n) RETURN labels(n), COUNT(*)
+
+Question 3.3 -> MATCH ()-[r]->() RETURN type(r), count(r)
+
+Question 3.4 -> MATCH (p:Person {name: 'Keanu Reeves'}) RETURN p
+
+Question 3.5 -> MATCH (p:Person) RETURN p.name LIMIT 5
+
+Question 3.6 -> MATCH (m:Movie) RETURN m.title SKIP 20 LIMIT 5
+
+Question 3.7 -> MATCH (p:Person)-[:DIRECTED]->(m:Movie) RETURN p.name ORDER BY p.name ASC
+
+Question 3.8 -> MATCH (p:Person {name: 'Ron Howard'})-[:DIRECTED]->(m:Movie) RETURN m.title
+
+Question 3.9 -> MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+		WHERE p.name CONTAINS 'Tom'
+		RETURN p.name, m.title
+
+Question 3.10 -> MATCH (p:Person {name: 'Ron Howard'})-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(a:Person {name: 'Tom Hanks'})
+		RETURN m.title
+
+
