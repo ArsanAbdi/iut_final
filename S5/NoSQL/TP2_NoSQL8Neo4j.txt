@@ -1,3 +1,37 @@
+// TD1:
+
+1. CREATE (a: Acteur {nom: 'Keanu', prénom: 'Reaves'}), (b: Acteur {nom: 'Weaving', prénom: 'Hugo'}), (c: Acteur: Realisateur {nom: 'Tarantino', prénom: 'Quentin'}), 
+(d: Film { titre: 'Matrix', genre: 'SF', année: '1999', pays: 'Australie'})
+
+2. MATCH (a: Acteur), (b: Film) WHERE a.nom='Keanu' AND b.titre='Matrix' CREATE (a)-[c: JoueDans]->(b)
+MATCH (a: Acteur), (b: Film) WHERE a.nom='Weaving' AND b.titre='Matrix' CREATE (a)-[:JoueDans]->(b)
+
+3. MATCH (n) RETURN n
+
+4. MATCH (n)-[r]->(p) RETURN n, r, p
+
+5. MATCH (n) OPTIONAL MATCH (n)-[r]->(p) RETURN n, r, p
+
+6. MATCH (p)-[:JoueDans]->(m: Film {titre: 'Matrix'}) RETURN p
+OU BIEN MATCH (p)-[:JoueDans]->(m: Film) WHERE m.titre='Matrix' RETURN p
+
+7. MATCH (n:Acteur|Realisateur) SET n.date=2001
+
+8. MATCH (m:Realisateur {nom: 'Tarantino'}) CREATE (n:Film {titre: 'Pulp Fiction', genre: 'Comédie noire', année: '1994', pays: 'USA'}), (m)-[:Realise]->(n)
+MATCH (n {nom: 'Tarantino'}) MATCH (f {titre: 'Pulp Fiction'}) CREATE (n)-[:JoueDans {role: 'Jimmie'}]->(f)
+
+9. MATCH (n)-[:JoueDans]->()<-[:Realise]-(n) RETURN n
+
+10. MATCH (n) RETURN COUNT(*)
+
+11. MATCH ()-[r]->() RETURN type(r), COUNT(*);
+
+12. MATCH (n) OPTIONAL MATCH (n)-[r]->(p) DETACH DELETE n, r, p
+----------------------------------------------------------------
+TD2:
+
+
+----------------------------------------------------------------
 requête pour tout afficher -> MATCH (n)-[r]->(m) RETURN n,r,m;
 
 Question 2:
